@@ -1,8 +1,19 @@
-  <div>
-    <label>name:
-      <input [(ngModel)]="item.name" placeholder="name">
-    </label>
-    <label>salary:
-      <input [(ngModel)]="item.salary" placeholder="salary">
-    </label>    
-  </div>
+<table class="table table-sm">
+  <thead>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th></th>
+  </thead>
+  <ng-container *ngFor="let item of itemArray">
+    <tr class="table-dark">
+      <td>{{ item.fullname }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.mobile }}</td>
+      <td>
+        <button class="btn btn-outline-info">Edit</button>
+        <button class="btn btn-outline-danger">Delete</button>
+      </td>
+    </tr>
+  </ng-container>
+</table>

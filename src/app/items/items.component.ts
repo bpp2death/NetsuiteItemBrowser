@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../items';
+import { ItemService } from '../shared/item.service';
 
 @Component({
   selector: 'app-items',
@@ -8,15 +8,20 @@ import { Item } from '../items';
 })
 export class ItemsComponent implements OnInit {
 
-  item: Item = {
-    id: 1,
-    name: "Mike Oranski",
-    salary: "150000"
-  };
-  
-  constructor() { }
+  constructor(private itemService: ItemService) { }
+  itemArray = [];
 
   ngOnInit() {
+    this.itemService.getItems().subscribe(
+      list => {
+        this.itemArray = list.map(item => {
+          return {
+            $key: item.key,
+            ...item.payload.val()
+          };
+        });
+      }
+    );
   }
 
 }

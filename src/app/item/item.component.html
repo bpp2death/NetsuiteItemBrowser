@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-5">
+    <form [formGroup]="this.itemService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input formControlName="fullname" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.fullname.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.fullname.errors">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
+        <div class="invalid-feedback" *ngIf="formControls.email.errors">Valid email is required.</div>
+      </div>
+      <div class="form-group">
+        <label>Mobile</label>
+        <input formControlName="mobile" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.mobile.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.mobile.errors">
+          <label *ngIf="submitted && formControls.mobile.errors.required">This field is required.</label>
+          <label *ngIf="formControls.mobile.errors.minlength">At least 8 numbers</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input formControlName="location" class="form-control">
+      </div> 
+      <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </div>                 
+    </form>
+    <label *ngIf="showSuccessMessage">Success!</label>
+
+  </div>
+  <div class="col-md-7">
+    <app-items></app-items>
+  </div>
+</div>
