@@ -19,7 +19,7 @@ export class ItemService {
   });
 
   getItems() {
-    this.itemList = this.firebase.list('items');
+    this.itemList = this.firebase.list('custjob');
     return this.itemList.snapshotChanges();
   }
 

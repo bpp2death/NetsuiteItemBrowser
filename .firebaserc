@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "netsuite-item-browser": "netsuite-item-browser",
+    "default": "netsuite-item-browser"
+  }
+}

@@ -8,7 +8,7 @@ import { ItemService } from '../shared/item.service';
 })
 export class ItemComponent implements OnInit {
 
-  constructor(private itemService: ItemService) { }
+  constructor(public itemService: ItemService) { }
   submitted: boolean;
   showSuccessMessage: boolean;
   formControls = this.itemService.form.controls;
